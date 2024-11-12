@@ -15,7 +15,7 @@ export const signup = async (
       email,
       password: hashedPassword,
     });
-    res.status(201).json({ message: " User has been created !", userId: user.id });
+    res.status(201).json({ message: "User has been created !", userId: user.id });
   } catch (error) {
     res.status(500).json({ error: "Failure to create an user" });
   }
@@ -35,7 +35,7 @@ export const login = async (
     const token = jwt.sign({ userId: user.id }, "sua_chave_secreta", {
       expiresIn: "1h",
     });
-    res.json({ message: "User logged!", token });
+    res.status(200).json({ message: "User logged!", token });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
