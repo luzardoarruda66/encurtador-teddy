@@ -15,7 +15,7 @@ export const signup = async (
       email,
       password: hashedPassword,
     });
-    res.status(201).json({ message: "User has created!", userId: user.id });
+    res.status(201).json({ message: " User has been created !", userId: user.id });
   } catch (error) {
     res.status(500).json({ error: "Failure to create an user" });
   }

@@ -4,7 +4,7 @@ import authRoutes from "./routes/authRoutes";
 import urlRoutes from "./routes/urlRoutes";
 import { redirectUrl } from "./controllers/urlController";
 import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from "swagger-jsdoc";
+import swaggerAutogen from "swagger-autogen";
 
 const swaggerOptions = {
   definition: {
@@ -19,13 +19,18 @@ const swaggerOptions = {
   apis: ["./src/routes/*.ts"],
 };
 
-const swaggerDocs = swaggerJsdoc(swaggerOptions);
-
 const app = express();
 
 app.use(express.json());
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const routes = ["./path/userRoutes.js", "./path/bookRoutes.js"];
+swaggerAutogen()("./swagger-output.json", routes, swaggerOptions);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(require("../swagger-output.json"))
+);
+
 app.use("/auth", authRoutes);
 app.use("/url", urlRoutes);
 
