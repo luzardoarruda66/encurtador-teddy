@@ -15,8 +15,14 @@ router.post(
       .matches(/\d/)
       .withMessage("The password must contains a number"),
   ],
+  validate,
   signup
 );
-router.post("/login",validate, login);
+router.post(
+  "/login",
+  [body("email").isEmail().withMessage("Invalid email")],
+  validate,
+  login
+);
 
 export default router;
