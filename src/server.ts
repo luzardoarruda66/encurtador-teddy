@@ -23,12 +23,8 @@ const app = express();
 
 app.use(express.json());
 
-swaggerAutogen()("./swagger-output.json", swaggerOptions);
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(require("../swagger-output.json"))
-);
+const swaggerSetup = require("../swagger-output.json");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSetup));
 
 app.use("/auth", authRoutes);
 app.use("/url", urlRoutes);

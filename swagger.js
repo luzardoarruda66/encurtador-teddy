@@ -15,3 +15,4 @@ const swaggerOptions = {
 
 const routes = ["./src/routes/authroutes.ts", "./src/routes/urlroutes.ts"];
 swaggerAutogen("./swagger-output.json", routes, swaggerOptions);
+

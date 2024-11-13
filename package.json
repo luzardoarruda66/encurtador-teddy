@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "npm run swagger-gen & ts-node-dev --inspect --transpile-only --ignore-watch=node_modules src/server.ts",
+    "swagger-gen": "node swagger.js",
     "build": "tsc",
     "test": "jest"
   },
