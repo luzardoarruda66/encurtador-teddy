@@ -4,20 +4,9 @@ import authRoutes from "./routes/authRoutes";
 import urlRoutes from "./routes/urlRoutes";
 import { redirectUrl } from "./controllers/urlController";
 import swaggerUi from "swagger-ui-express";
-import swaggerAutogen from "swagger-autogen";
+import dotenv from "dotenv";
 
-const swaggerOptions = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "API de Encurtamento de URL",
-      version: "1.0.0",
-      description:
-        "API para encurtamento de URLs com funcionalidades de autenticação, atualização da url encurtada e contabilizador de clicks",
-    },
-  },
-  apis: ["./src/routes/*.ts"],
-};
+dotenv.config();
 
 const app = express();
 
