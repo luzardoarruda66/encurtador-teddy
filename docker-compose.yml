@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_HOST: DB
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: encurtador-teddy
+    command: npm run dev
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: encurtador-teddy
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

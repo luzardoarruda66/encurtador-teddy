@@ -23,8 +23,7 @@ const app = express();
 
 app.use(express.json());
 
-const routes = ["./path/userRoutes.js", "./path/bookRoutes.js"];
-swaggerAutogen()("./swagger-output.json", routes, swaggerOptions);
+swaggerAutogen()("./swagger-output.json", swaggerOptions);
 app.use(
   "/api-docs",
   swaggerUi.serve,
