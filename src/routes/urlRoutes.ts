@@ -5,8 +5,8 @@ import {
   shortenUrl,
   updateUrl,
 } from "../controllers/urlController";
-import { authenticate } from "../middleware/authMiddleware";
-import { validate } from "../middleware/validationMiddleware";
+import { authenticate } from "../middlewares/authMiddleware";
+import { validate } from "../middlewares/validationMiddleware";
 import { body, param } from "express-validator";
 
 const router = express.Router();

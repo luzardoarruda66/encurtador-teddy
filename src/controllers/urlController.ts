@@ -43,7 +43,7 @@ export const redirectUrl = async (
       ? url.originalUrl
       : "http://".concat(url.originalUrl);
 
-    res.redirect(urlWithProtocol);
+    res.status(301).redirect(urlWithProtocol);
   } catch (error) {
     res.status(500).json({ error: "Failure to redirect!" });
   }
@@ -60,7 +60,8 @@ export const listUserUrls = async (
       return;
     }
     const urls = await URL.findAll({ where: { userId } });
-    res.json(urls);
+    console.log(urls)
+    res.status(200).json(urls);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
