@@ -60,6 +60,10 @@ Este projeto é uma API REST para encurtamento de URLs com autenticação de usu
 1. **Para rodar os testes unitários basta executar**:
     ```bash
     npm test
+### Melhorias futuras
+    Adicionar autenticação OAuth.
+    Melhorar a observabilidade com métricas e logs.
+
 ## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)
